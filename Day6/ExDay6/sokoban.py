@@ -152,13 +152,11 @@
 #         # print("STAGE 2")
 #         # stage_two()
 
-from player import Player
-player1 = Player(1, 3)
-player1.print()
+# from player import Player
+# player1 = Player(1, 3)
+# player1.print()
 
 from map import Map
 map = Map(7,7)
 map.print()
-
-
-
+map.loop()

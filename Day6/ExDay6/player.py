@@ -2,6 +2,7 @@ class Player:
     def __init__(self, x, y): #constructure
         self.x = x
         self.y = y
+        self.text = "P "
 
     def print(self):
         print(self.x, self.y)
@@ -15,3 +16,5 @@ class Player:
         self.y = y
     def calc_next(self, dx, dy):
         return (self.x + dx),(self.y + dy)
+    def match(self, x, y):
+        return self.x == x and self.y == y
