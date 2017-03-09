@@ -84,7 +84,7 @@ class Map:
             return True
         return False
 
-map = Map(25, 18)
+map = Map(25, 19)
 
 
 while not done:
