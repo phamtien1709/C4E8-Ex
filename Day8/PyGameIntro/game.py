@@ -5,6 +5,7 @@ screen = pygame.display.set_mode([800, 600])
 
 done = False
 game_finished = False
+game_lose = False
 
 # draw background
 COLOR_WHITE = (255, 255, 255)
@@ -16,6 +17,7 @@ square_image = pygame.image.load("square.png")
 box_image = pygame.image.load("box.png")
 key_image = pygame.image.load("key.png")
 win_image = pygame.image.load("win.png")
+lose_image = pygame.image.load("lose.png")
 
 x = 100
 y = 100
@@ -77,6 +79,10 @@ class Map:
         if self.box.x == self.key.x and self.box.y == self.key.y:
             return True
         return False
+    def check_lose(self):
+        if [self.box.x, self.box.y] == [0, 0] or [self.box.x, self.box.y] == [0, self.width-1] or [self.box.x, self.box.y] == [self.height - 1, 0] or [self.box.x, self.box.y] == [self.width - 1, self.height -1]:
+            return True
+        return False
 
 map = Map(25, 18)
 
@@ -107,6 +113,9 @@ while not done:
         if map.check_win():
             print("YOU WIN!")
             game_finished = True
+        if map.check_lose():
+            print("YOU LOSE!")
+            game_lose = True
 
 
     # Repaint
@@ -123,7 +132,9 @@ while not done:
     screen.blit(player_image, (map.player.x * SQUARE_SIZE, map.player.y * SQUARE_SIZE))
 
     if game_finished == True:
-        screen.blit(win_image, (250, 250))
+        screen.blit(win_image, (250, 200))
         # done = True
+    if game_lose == True:
+        screen.blit(lose_image, (250, 200))
 
     pygame.display.flip()
