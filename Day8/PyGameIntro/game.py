@@ -12,12 +12,12 @@ COLOR_WHITE = (255, 255, 255)
 COLOR_BLACK = (0, 0, 0)
 
 # draw image
-player_image = pygame.image.load("mario.png")
-square_image = pygame.image.load("square.png")
-box_image = pygame.image.load("box.png")
-key_image = pygame.image.load("key.png")
-win_image = pygame.image.load("win.png")
-lose_image = pygame.image.load("lose.png")
+player_image = pygame.image.load("images/mario.png")
+square_image = pygame.image.load("images/square.png")
+box_image = pygame.image.load("images/box.png")
+key_image = pygame.image.load("images/key.png")
+win_image = pygame.image.load("images/win.png")
+lose_image = pygame.image.load("images/lose.png")
 
 x = 100
 y = 100
@@ -61,15 +61,20 @@ class Map:
         self.box = Box(6, 6)
         self.key = Key (11, 13)
 
+
     def move_player(self, dx, dy):
         [next_player_x, next_player_y] = self.player.calc_next_position(dx, dy)
         [next_box_x, next_box_y] = self.box.calc_next_position(dx, dy)
         if self.check_inside(next_player_x, next_player_y):
             if next_player_x == self.box.x and next_player_y == self.box.y:
                 if self.check_inside(next_box_x, next_box_y):
+                    pygame.mixer.music.load("sounds/move.wav")
+                    pygame.mixer.music.play(0)
                     self.box.move(dx, dy)
                     self.player.move(dx, dy)
             else:
+                pygame.mixer.music.load("sounds/move.wav")
+                pygame.mixer.music.play(0)
                 self.player.move(dx, dy)
 
     def check_inside(self, x, y):
