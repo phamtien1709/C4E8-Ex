@@ -111,8 +111,8 @@ while not done:
             elif event.key == pygame.K_DOWN:
                 dy = 1
 
-
     # Process game events
+
     if dx != 0 or dy != 0:
         map.move_player(dx, dy)
         if map.check_win():
@@ -122,8 +122,8 @@ while not done:
             print("YOU LOSE!")
             game_lose = True
 
-
     # Repaint
+
     screen.fill(COLOR_WHITE)
 
     for x in range(map.width):
