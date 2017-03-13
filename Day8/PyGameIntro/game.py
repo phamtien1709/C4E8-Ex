@@ -1,4 +1,5 @@
 import pygame
+import random
 
 pygame.init()
 screen = pygame.display.set_mode([800, 600])
@@ -18,16 +19,43 @@ box_image = pygame.image.load("images/box.png")
 key_image = pygame.image.load("images/key.png")
 win_image = pygame.image.load("images/win.png")
 lose_image = pygame.image.load("images/lose.png")
+boss_image = pygame.image.load("images/prison_left.png")
 
 x = 100
 y = 100
 
 SQUARE_SIZE = 32
 
+
+class Boss:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def print(self):
+        print(self.x, self.y)
+
+    def move(self, dx_random, dy_random):
+        self.x += dx_random
+        if dx_random == 0:
+            self.y += dy_random
+
+    def move_to(self, x, y):
+        self.x = x
+        self.y = y
+
+    def calc_next(self, dx, dy):
+        return (self.x + dx), (self.y + dy)
+
+    def match(self, x, y):
+        return self.x == x and self.y == y
+
+
 class Key:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
 
 class Player:
     def __init__(self, x, y):
@@ -41,6 +69,7 @@ class Player:
     def calc_next_position(self, dx, dy):
         return self.x + dx, self.y + dy
 
+
 class Box:
     def __init__(self, x, y):
         self.x = x
@@ -53,14 +82,15 @@ class Box:
     def calc_next_position(self, dx, dy):
         return self.x + dx, self.y + dy
 
+
 class Map:
     def __init__(self, width, height):
         self.width = width
         self.height = height
         self.player = Player(1, 1)
         self.box = Box(6, 6)
-        self.key = Key (11, 13)
-
+        self.key = Key(11, 13)
+        self.boss = Boss(10, 14)
 
     def move_player(self, dx, dy):
         [next_player_x, next_player_y] = self.player.calc_next_position(dx, dy)
@@ -72,10 +102,12 @@ class Map:
                     pygame.mixer.music.play(0)
                     self.box.move(dx, dy)
                     self.player.move(dx, dy)
+                    self.boss.move(dx_random, dy_random)
             else:
                 pygame.mixer.music.load("sounds/move.wav")
                 pygame.mixer.music.play(0)
                 self.player.move(dx, dy)
+                self.boss.move(dx_random, dy_random)
 
     def check_inside(self, x, y):
         return 0 <= x < self.width and 0 <= y < self.height
@@ -84,6 +116,7 @@ class Map:
         if self.box.x == self.key.x and self.box.y == self.key.y:
             return True
         return False
+
     def check_lose(self):
         if [self.box.x, self.box.y] == [0, 0] or [self.box.x, self.box.y] == [0, self.width-1] or [self.box.x, self.box.y] == [self.height - 1, 0] or [self.box.x, self.box.y] == [self.width - 1, self.height -1]:
             return True
@@ -97,6 +130,8 @@ while not done:
     key_arrow = None
 
     # Get events
+    dx_random = random.randrange(-1, 2, 1)
+    dy_random = random.randrange(-1, 2, 1)
     dx, dy = 0, 0
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -135,6 +170,8 @@ while not done:
     screen.blit(box_image, (map.box.x * SQUARE_SIZE, map.box.y * SQUARE_SIZE))
 
     screen.blit(player_image, (map.player.x * SQUARE_SIZE, map.player.y * SQUARE_SIZE))
+
+    screen.blit(boss_image, (map.boss.x * SQUARE_SIZE, map.boss.y * SQUARE_SIZE))
 
     if game_finished == True:
         screen.blit(win_image, (250, 200))
