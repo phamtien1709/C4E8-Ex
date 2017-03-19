@@ -51,7 +51,5 @@ while not done:
 
     screen.fill(WHITE)
     mario_anim.run(screen, 10, 20)
-
-
-    clock.tick(60)
+    clock.tick(30)
     pygame.display.flip()
