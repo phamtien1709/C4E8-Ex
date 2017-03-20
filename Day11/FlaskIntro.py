@@ -49,5 +49,20 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route('/css_demo')
+def css_demo():
+    return render_template("cssdemo.html")
+
+
+@app.route('/w3cssdemo')
+def w3css_demo():
+    return render_template("w3cssdemo.html")
+
+
+@app.route('/akitech')
+def akitech():
+    return render_template("akitech.html")
+
+
 if __name__ == '__main__':
     app.run()
