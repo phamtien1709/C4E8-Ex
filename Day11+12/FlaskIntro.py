@@ -31,54 +31,56 @@ girl_list = [
     }
 ]
 
-food_list = [
+food_list1 = [
     {
         "src": "http://liztraks.com/ltphotography/wp-content/uploads/2016/01/2-1-450x675.jpg",
         "name_food": "Bánh rán chanh vắt khổng lồ",
-        "title": "Món bánh rán đậm chất vỉa hè Việt Nam được đưa vào chế biến cùng nguyên liệu tinh túy từ sữa dừa và hoa nhài, tạo nên sự khác biện giữa không gian và thời gian",
+        "title": "Món bánh rán đậm chất vỉa hè Việt Nam được đưa vào chế biến cùng nguyên liệu tinh túy từ sữa dừa và hoa nhài, tạo nên sự khác biện giữa không gian và thời gian.",
         "price": "135. 500 đ"
     },
     {
         "src": "http://lovelyindeed.com/wp-content/uploads/2016/10/pumpkin-donut-holes-1-450x675.jpg",
-        "name_food": "aaa",
-        "title": "bbb",
-        "price": "135. 500 đ"
+        "name_food": "Xiên nướng tẩm bột mỳ Ấn Độ",
+        "title": "Được làm từ thịt bò Kobe, xay nhuyễn cùng bột mỳ nhập khẩu nguyên túi từ Ấn Độ tạo nên một hương vị khó cưỡng nổi.",
+        "price": "148. 000 đ"
     },
     {
-        "src": "http://liztraks.com/ltphotography/wp-content/uploads/2016/01/2-1-450x675.jpg",
-        "name_food": "aaa",
-        "title": "bbb",
-        "price": "135. 500 đ"
+        "src": "http://gapps.pl/wp-content/uploads/2017/01/IMG_0229-450x675.jpg",
+        "name_food": "Cà phê trứng Quảng Đông",
+        "title": "Không cần nói gì nhiều, chỉ việc nhấc cốc lên và thưởng thức ly cà phê thơm ngon, đậm đà và bổ dưỡng.",
+        "price": "102. 000 đ"
     },
     {
-        "src": "http://liztraks.com/ltphotography/wp-content/uploads/2016/01/2-1-450x675.jpg",
-        "name_food": "aaa",
-        "title": "bbb",
-        "price": "135. 500 đ"
+        "src": "http://tattebakery.com/wp-content/uploads/2013/10/Q6A2524-450x675.jpg",
+        "name_food": "Cupcake Sờ cha beo di",
+        "title": "Vị ngọt của bánh, độ ngậy của bơ, hòa quyện cùng vị thơm của dâu, phù hợp với thưởng thức bữa sáng cùng lý cà phê kể trên.",
+        "price": "112. 000đ"
+    }
+    ]
+food_list2 = [
+    {
+        "src": "http://www.jenniephaneufphotography.com/wp-content/uploads/2016/07/Pumpkin-Spice-Donuts-1-450x675.jpg",
+        "name_food": "Donuts Australia",
+        "title": "ĐÔ NÚT CỦA ÚC, đóng gói và làm nóng trong hộp sắt không bóc hoàn toàn",
+        "price": "62. 000 đ"
     },
     {
-        "src": "http://liztraks.com/ltphotography/wp-content/uploads/2016/01/2-1-450x675.jpg",
-        "name_food": "aaa",
-        "title": "bbb",
-        "price": "135. 500 đ"
+        "src": "http://www.glorykitchen.com/wp-content/uploads/2017/01/Vegetable-Chicken-and-Orzo-Soup5-450x675.jpg",
+        "name_food": "Soup Ve ge tơ bờ lồ",
+        "title": "Món súp dân dã được chính các đầu bếp Việt Nam chế biến",
+        "price": "160. 000 đ"
     },
     {
-        "src": "http://liztraks.com/ltphotography/wp-content/uploads/2016/01/2-1-450x675.jpg",
-        "name_food": "aaa",
-        "title": "bbb",
-        "price": "135. 500 đ"
+        "src": "http://www.jenniephaneufphotography.com/wp-content/uploads/2016/07/Mesquite-Chicken-Tacos-1-450x675.jpg",
+        "name_food": "Taco Mexico",
+        "title": "Lấy công thức từ dân bản địa của thung lũng Mexico trứ danh, rất khỏ để bỏ qua món này trong thực đơn",
+        "price": "300. 000 đ"
     },
     {
-        "src": "http://liztraks.com/ltphotography/wp-content/uploads/2016/01/2-1-450x675.jpg",
-        "name_food": "aaa",
-        "title": "bbb",
-        "price": "135. 500 đ"
-    },
-    {
-        "src": "http://liztraks.com/ltphotography/wp-content/uploads/2016/01/2-1-450x675.jpg",
-        "name_food": "aaa",
-        "title": "bbb",
-        "price": "135. 500 đ"
+        "src": "https://www.legacyoftaste.com/wp-content/uploads/2017/02/TsingtaoSkewerChicken-450x675.jpg",
+        "name_food": "Chicken Skewers",
+        "title": "Gà xé phay nướng than hồng hoạt tính không khói, nhâm nhi cùng chút bia TSINGTAO từ Thanh Đảo Trung Quốc là khẩu vị tuyệt vời cho thực dân châu Á",
+        "price": "250. 000 đ"
     }
 ]
 
@@ -112,7 +114,7 @@ def w3css_demo():
 
 @app.route('/foodblog')
 def foodblog():
-    return render_template("foodblog.html", food_list=food_list)
+    return render_template("foodblog.html", food_list1=food_list1, food_list2=food_list2)
 
 
 if __name__ == '__main__':

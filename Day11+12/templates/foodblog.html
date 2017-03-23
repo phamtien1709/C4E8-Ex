@@ -36,7 +36,17 @@
 
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
-      {% for foo in food_list %}
+      {% for foo in food_list1 %}
+        <div class="w3-quarter">
+          <img src={{ foo["src"] }} alt={{ foo["name_food"] }} style="width:100%">
+          <h3>{{ foo["name_food"] }}</h3>
+          <p>{{ foo["title"] }}</p>
+          <h4>{{ foo["price"] }}</h4>
+        </div>
+      {% endfor %}
+  </div>
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+      {% for foo in food_list2 %}
         <div class="w3-quarter">
           <img src={{ foo["src"] }} alt={{ foo["name_food"] }} style="width:100%">
           <h3>{{ foo["name_food"] }}</h3>
@@ -63,11 +73,11 @@
   <!-- About Section -->
   <div class="w3-container w3-padding-32 w3-center">
     <h3>About Me, The Food Man</h3><br>
-    <img src="/w3images/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.0-9/17264451_910258192447724_702570593984110698_n.jpg?oh=6c5950f5168e9808293f964ddd8ea14d&oe=5951E097" alt="Me" class="w3-image" style="display:block;margin:auto" width="400" height="400">
     <div class="w3-padding-32">
       <h4><b>I am Who I Am!</b></h4>
       <h6><i>With Passion For Real, Good Food</i></h6>
-      <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      <p>Cửa hàng của chúng tôi, trên 3 năm thương hiệu, được sự tin dụng của trên 3/4 thực khách phương Tây tới Hà Nội cùng với sự hưởng ứng của toàn thể thực khách Việt Nam khi bước đến. Chúng tôi khẳng định luôn mạng đến với quý vị chất lượng tốt nhất trên từng món ăn, từng chiếc bát, chiếc đũa, dĩa và cốc. Rất vui lòng nhận được sự góp ý chân thành. Xin cảm ơn và chúc quý khách ngon miệng!</p>
     </div>
   </div>
   <hr>
@@ -77,21 +87,21 @@
     <div class="w3-third">
       <h3>FOOTER</h3>
       <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      <p>Powered by <a href="https://www.facebook.com/kisskiss1709" target="_blank">Tiến Phạm</a></p>
     </div>
 
     <div class="w3-third">
       <h3>BLOG POSTS</h3>
       <ul class="w3-ul w3-hoverable">
         <li class="w3-padding-16">
-          <img src="/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Lorem</span><br>
-          <span>Sed mattis nunc</span>
+          <img src="http://a3.mzstatic.com/us/r30/Purple62/v4/9c/52/40/9c524046-35b7-e328-e0d4-6cbf89d9ac70/icon175x175.jpeg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Foody</span><br>
+          <span>By Foody.vn</span>
         </li>
         <li class="w3-padding-16">
-          <img src="/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large">Ipsum</span><br>
-          <span>Praes tinci sed</span>
+          <img src="https://yt3.ggpht.com/-VHsPVC09Kvk/AAAAAAAAAAI/AAAAAAAAAAA/SE_jxSUAApo/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Feedy</span><br>
+          <span>By Feedy.vn</span>
         </li>
       </ul>
     </div>
