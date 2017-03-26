@@ -139,7 +139,7 @@ def foodblog():
 
 @app.route('/foodblog1')
 def foodblog1():
-    return render_template("foodblog1", food_list=FoodItem.objects())
+    return render_template("foodblog1.html", food_list=FoodItem.objects())
 
 
 @app.route('/addFood', methods=["GET", "POST"])
@@ -161,7 +161,8 @@ def delete_food():
         return render_template("deletefood.html")
     elif request.method == "POST":
         new_food = FoodItem.objects(title=request.form["title"]).first()
-        new_food.delete()
+        if new_food is not None:
+            new_food.delete()
         return render_template("deletefood.html")
 
 
