@@ -166,5 +166,21 @@ def delete_food():
         return render_template("deletefood.html")
 
 
+@app.route('/updateFood', methods=["GET", "POST"])
+def update_food():
+    if request.method == "GET":
+        return render_template("updatefood.html")
+    elif request.method == "POST":
+        new_food = FoodItem.objects(title=request.form["title_old"]).first()
+        if new_food is not None:
+            new_food.delete()
+            new_food = FoodItem()
+            new_food.src = request.form["source"]
+            new_food.title = request.form["title"]
+            new_food.description = request.form["description"]
+            new_food.save()
+        return render_template("updatefood.html")
+
+
 if __name__ == '__main__':
     app.run()
